@@ -1,4 +1,4 @@
 NewFrogger
 ==========
 
-It is like the old frogger, but (BUM BUM BUM)...new. 
+It is like the old frogger, but...(BUM BUM BUM) new. 
