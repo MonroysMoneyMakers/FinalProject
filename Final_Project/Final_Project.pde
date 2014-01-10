@@ -11,8 +11,8 @@ int limit=1000;
 void setup() {
   size(displayWidth, displayHeight);
 
-  for (int i=0;i<drizzle.length;i++) {
-    drizzle[i]=new Raindrops();
+  for (int i=0;i<car.length;i++) {
+    car[i]=new Car();
   }
 }
 
@@ -22,11 +22,11 @@ void draw() {
   if (millis()-oldtime>=limit) {
     oldtime=millis();
     index+=1;
+    for (int i=0;i<car.length;i++) {  
+      car[i].display();
+      car[i].drive();
+      car[i].wraparound();
+    }
   }
 }
-
-
-car.display();
-car.drive();
-car.wraparound();
 
