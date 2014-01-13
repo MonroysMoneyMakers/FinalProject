@@ -1,32 +1,26 @@
-Car[]car = new Car[3];
-
-boolean start= false;
-boolean end=false;
-int index=1;
-int sec=0;
-int currtime=0;
-int oldtime=0;
-int limit=1000;
+ShortCar SC;
+LongCar LC;
+Boat Bo;
+Frog frog;
+PImage Background;
 
 void setup() {
-  size(displayWidth, displayHeight);
-
-  for (int i=0;i<car.length;i++) {
-    car[i]=new Car();
-  }
+  Background = loadImage("frogger.png");
+  size(Background.width, Background.height);
+  SC = new ShortCar();
+  LC = new LongCar();
+  Bo = new Boat();
+  frog = new Frog();
 }
-
 void draw() {
-  background(0);
-  sec=currtime-oldtime;
-  if (millis()-oldtime>=limit) {
-    oldtime=millis();
-    index+=1;
-    for (int i=0;i<car.length;i++) {  
-      car[i].display();
-      car[i].drive();
-      car[i].wraparound();
-    }
-  }
+  background(Background);
+  SC.display();
+  SC.move();
+  LC.display();
+  LC.move();
+  Bo.display();
+  Bo.move();
+  frog.display();
+  frog.keyPressed();
 }
 

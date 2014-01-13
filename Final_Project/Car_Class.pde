@@ -1,27 +1,21 @@
-class Car {
-  PVector loc, vel, acc;
+class ShortCar {
+  PVector loc, vel;
   int d;
-  PImage car;
 
-  Car() {
-    d= 60;
-    car=loadImage("car.jpg");
-    loc= new PVector (0, height/2);
-    vel= new PVector (10, 10);
-    acc = new PVector (2, 0);
+  ShortCar() {
+    d = 20;
+    loc = new PVector (width, height-height/4+8);
+    vel = new PVector (1, 0);
   }
-
   void display() {
-    image(car, loc.x, loc.y, d, d);
+    fill(255);
+    ellipse(loc.x, loc.y, d, d);
   }
-
-  void drive() {
-    loc.add(vel);
-  }
-
-  void wraparound() {
-    if (loc.x>= width) {
-      loc.x=0;
+  void move() {
+    loc.sub(vel);
+    if (loc.x <= 0) {
+      loc.set(width, height-height/4+8);
     }
   }
 }
+
