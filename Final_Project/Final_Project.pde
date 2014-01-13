@@ -5,7 +5,7 @@ Frog frog;
 PImage Background;
 
 void setup() {
-  Background = loadImage("frogger.png");
+  Background = loadImage("RightBackground.png");
   size(Background.width, Background.height);
   SC = new ShortCar();
   LC = new LongCar();
