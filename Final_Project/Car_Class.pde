@@ -4,7 +4,7 @@ class ShortCar {
 
   ShortCar() {
     d = 20;
-    loc = new PVector (width, height-height/4+8);
+    loc = new PVector (width, height-height/6);
     vel = new PVector (1, 0);
   }
   void display() {

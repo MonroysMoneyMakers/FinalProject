@@ -21,6 +21,6 @@ void draw() {
   Bo.display();
   Bo.move();
   frog.display();
-  frog.keyPressed();
+  frog.move();
 }
 
