@@ -1,15 +1,16 @@
 class Frog {
   PVector loc, UD, LR;
   int d; 
+  PImage f;
   Frog() {
     d = 20;
     loc = new PVector (width/2, height-50);
-    UD = new PVector (0, 10);
-    LR = new PVector (10, 0);
+    UD = new PVector (0, 15);
+    LR = new PVector (15, 0);
+    f = loadImage("Frog.png");
   }
   void display() {
-    fill(5, 175, 6);
-    ellipse(loc.x, loc.y, d, d);
+    image(loadImage("Frog.png"), loc.x, loc.y, 50, 50);
   }
   void move() {
     if (keyPressed && key == CODED) {
@@ -25,9 +26,6 @@ class Frog {
       else if (keyCode == DOWN) {
         loc.add(UD);
       }
-    }
-    else {
-      loc = loc;
     }
   }
 }
