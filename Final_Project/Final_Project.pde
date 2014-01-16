@@ -1,26 +1,36 @@
-ShortCar SC;
-LongCar LC;
-Boat Bo;
+ArrayList<Car> cars = new ArrayList<Car>();
 Frog frog;
-PImage Background;
+
+PImage background;
+int x, y;
+int oldtime;
+int newtime;
 
 void setup() {
-  Background = loadImage("RightBackground.png");
-  size(Background.width, Background.height);
-  SC = new ShortCar();
-  LC = new LongCar();
-  Bo = new Boat();
+  background=loadImage("Background.png");
+  size(background.width, background.height);
+  cars.add(new YellowCar(width/2, height/2));
   frog = new Frog();
 }
+
 void draw() {
-  background(Background);
-  SC.display();
-  SC.move();
-  LC.display();
-  LC.move();
-  Bo.display();
-  Bo.move();
+  background(background);
+  for (Car c : cars) {
+    c.display();
+    c.move();
+  }
   frog.display();
-  frog.move();
+  frog.update();
+  respawn();
+}
+void respawn() {
+  if (oldtime<=millis()){
+  oldtime+=2000;
+ 
+    cars.add(new YellowCar(width, random(500,1000)));
+  
+  
+    cars.add(new GreenCar(width, random(500,1000)));
+  }
 }
 
