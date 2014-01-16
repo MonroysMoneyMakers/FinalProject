@@ -1,21 +1,78 @@
 class Boat {
   PVector loc, vel;
   int d;
-
-  Boat() {
-    d = 20;
-    loc = new PVector (0, 155);
-    vel = new PVector (1.25, 0);
+  PImage boat;
+  int left;
+  Boat(float x, float y)
+  {
+    loc = new PVector(x, y);
   }
   void display() {
-    fill(255);
-    ellipse(loc.x, loc.y, d+10, d);
-    ellipse(loc.x + 100, loc.y, d+10, d);
+    image(boat, loc.x, loc.y, 100, 50);
   }
+
   void move() {
     loc.add(vel);
-    if (loc.x >= width) {
-      loc.set(0, 155);
+  }
+}
+
+class BoatTwo extends Boat {
+  BoatTwo(float x, float y) {
+    super(x, y);
+    vel = new PVector(3, 0);
+    boat = loadImage("boat2.png");
+  }
+
+  void move() {
+    super.move();
+    if (loc.x > width) {
+      loc.x = width*5;
+      vel.set(0,0);
     }
   }
 }
+
+class BoatThree extends Boat {
+  BoatThree(float x, float y) {
+    super(x, y);
+    vel = new PVector(-2, 0);
+    boat = loadImage("ReverseBoat16.png");
+  }
+
+  void move() {
+    super.move();
+    if (loc.x > width) {
+      loc.x = width*5;
+      vel.set(0,0);
+    }
+  }
+}
+class BoatFour extends Boat {
+  BoatFour(float x, float y){
+    super(x,y);
+    vel = new PVector (2, 0);
+    boat = loadImage("Boat.png");
+  }
+  void move(){
+    super.move();
+    if (loc.x > width) {
+      loc.x = width*5;
+      vel.set(0,0);
+    }
+  }
+}
+class Log extends Boat {
+  Log(float x, float y ) {
+    super(x, y);
+    vel = new PVector (-3, 0);
+    boat = loadImage("longlog.png");
+  }
+  void move(){
+    super.move();
+    if (loc.x > width){
+      loc.x = width * 5;
+      vel.set(0,0);
+    }
+  }
+}
+
