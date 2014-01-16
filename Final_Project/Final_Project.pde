@@ -36,7 +36,7 @@ void respawn() {
 //    cars.add(new GreenCar(width, random(500, 1000)));
     boats.add(new BoatThree(width, (height/2 - height/6+25)));
     boats.add(new BoatTwo(0, height/4 +35));
-    boats.add(new BoatFour(0, height/2 - 065));
+    boats.add(new BoatFour(0, height/2 - 65));
     boats.add(new Log(width, height/8 +50));
   }
 }
