@@ -75,4 +75,17 @@ class Log extends Boat {
     }
   }
 }
-
+class SLog extends Boat {
+  SLog (float x, float y ){
+    super(x,y);
+    vel = new PVector (3.5, 0 );
+    boat = loadImage("shortlog.png");
+  }
+  void move(){
+    super.move();
+    if (loc.x > width){
+      loc.x = width * 5;
+      vel.set(0,0);
+    }
+  }
+}
