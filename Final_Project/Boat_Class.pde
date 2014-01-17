@@ -10,7 +10,6 @@ class Boat {
   void display() {
     image(boat, loc.x, loc.y, 100, 50);
   }
-
   void move() {
     loc.add(vel);
   }

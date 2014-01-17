@@ -11,7 +11,7 @@ void setup() {
   background=loadImage("RightBackground.png");
   size(background.width, background.height);
   cars.add(new YellowCar(width/2, height/2+50));
-  boats.add(new BoatTwo(0,height/4+43));
+  boats.add(new BoatTwo(0, height/4+43));
   frog = new Frog();
 }
 
@@ -29,6 +29,7 @@ void draw() {
   frog.move();
   respawn();
 }
+
 void respawn() {
   if (oldtime<=millis()) {
     oldtime+=5000;
@@ -44,3 +45,4 @@ void respawn() {
     boats.add(new SLog(0, height/6+10));
   }
 }
+
