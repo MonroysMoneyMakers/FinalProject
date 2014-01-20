@@ -29,7 +29,7 @@ void instructions() {
   textSize(35);
   fill(0);
   text("BACK", width/2-30, 808);
-  if (mouseX > backX && mouseX < backW && mouseY > backY && mouseY < backH && mousePressed) {
+  if (mouseX > backX && mouseX < backW + backX && mouseY > backY && mouseY < backH + backY && mousePressed) {
     back = true;
   }
 }

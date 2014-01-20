@@ -45,11 +45,29 @@ void draw() {
   if (instructions == true) {
     instructions();
   }
-  if (back == true){
-    instructions = false;
+  if (back == true) {
     Start();
   }
 }
+
+void mousePressed() {
+  if (mouseX > backX && mouseX < backW + backX && mouseY > backY && mouseY < backH + backY) {
+    back = !back;
+    start = false;
+    instructions = false;
+  }
+  if (mouseX>startX && mouseX <startX+startW && mouseY>startY && mouseY <startY+startH) {
+    start = !start;
+    instructions = false;
+    back = false;
+  }
+  if (mouseX>insX && mouseX <insX+insW && mouseY>insY && mouseY <insY+insH) {
+    instructions = !instructions;
+    start = false;
+    back = false;
+  }
+}
+
 
 void respawn() {
   if (oldtime<=millis()) {
