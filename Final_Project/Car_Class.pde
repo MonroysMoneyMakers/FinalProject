@@ -82,7 +82,6 @@ class RedCar extends Car{
     super.move();
     if (loc.x > width){
       loc.x = 0;
-//      vel.set(0,0);
     }
   }
 }
