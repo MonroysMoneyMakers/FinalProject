@@ -75,14 +75,14 @@ class Truck extends Car {
 class RedCar extends Car{
   RedCar(float x, float y){
     super(x,y);
-    vel = new PVector (4,0);
+    vel = new PVector (4.5,0);
     car = loadImage("RedCar.png");
   }
   void move (){
     super.move();
     if (loc.x > width){
-      loc.x = width *5;
-      vel.set(0,0);
+      loc.x = 0;
+//      vel.set(0,0);
     }
   }
 }

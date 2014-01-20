@@ -6,6 +6,7 @@ PImage background;
 int x, y;
 int oldtime;
 int newtime;
+int lives;
 
 void setup() {
   background=loadImage("RightBackground.png");
@@ -13,6 +14,7 @@ void setup() {
   cars.add(new YellowCar(width/2, height/2+50));
   boats.add(new BoatTwo(0, height/4+43));
   frog = new Frog();
+  cars.add(new RedCar (0, height - 290));
 }
 
 void draw() {
@@ -20,7 +22,7 @@ void draw() {
   for (Car c : cars) {
     c.display();
     c.move();
-  }
+  } 
   for (Boat b : boats) {
     b.display();
     b.move();
@@ -37,7 +39,6 @@ void respawn() {
     cars.add(new GreenCar(width, height-230));
     cars.add(new BlueCar(0, height-175));
     cars.add(new Truck(width, height - 345));
-    cars.add(new RedCar(0, height - 290));
     boats.add(new BoatThree(width, (height/2 - height/6+25)));
     boats.add(new BoatTwo(0, height/4 +43));
     boats.add(new BoatFour(0, height/8+100));
