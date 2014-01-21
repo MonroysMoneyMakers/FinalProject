@@ -12,6 +12,7 @@ PImage StartFrog;
 boolean instructions;
 boolean start;
 boolean back;
+boolean stop;
 
 void setup() {
   keys = loadImage("arrowkeys.jpg");
@@ -25,11 +26,15 @@ void setup() {
   start = false;
   back = false;
   instructions = false;
+  stop=false;
+  lives=5;
 }
 void draw() {   
   Start();
-  if (start == true) {
+  if (start == true && stop == false) {
     background(background);
+    textSize(60);
+    text(lives, 100, 100);
     for (Car c : cars) {
       c.display();
       c.move();
@@ -38,18 +43,31 @@ void draw() {
       b.display();
       b.move();
     }
-    frog.display();
-    frog.move();
-    respawn();
+    for (int i = 0; i < cars.size(); i++) {
+      Car c = cars.get(i);
+      if (frog.Interact(c)==true) {
+        lives--;
+        frog.restart();
+      }
+    }
   }
-  if (instructions == true) {
-    instructions();
-  }
-  if (back == true) {
-    Start();
-  }
+  frog.display();
+  frog.move();
+  respawn();
+if (instructions == true) {
+  instructions();
 }
-
+if (back == true) {
+  Start();
+}
+if (lives==0) {
+  start = false;
+  stop=true;
+}
+//  if (start==false && stop==true) {
+//    stop screen
+//  }
+}
 void mousePressed() {
   if (mouseX > backX && mouseX < backW + backX && mouseY > backY && mouseY < backH + backY) {
     back = !back;
@@ -67,6 +85,7 @@ void mousePressed() {
     back = false;
   }
 }
+
 
 
 void respawn() {

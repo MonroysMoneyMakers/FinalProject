@@ -28,5 +28,16 @@ class Frog {
       }
     }
   }
-}
+  void restart() {
+    display();
+  }
 
+  boolean Interact(Car car) {
+    if (loc.dist(car.loc) < d/2 + car.d/2) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}

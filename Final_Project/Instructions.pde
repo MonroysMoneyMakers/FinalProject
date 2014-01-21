@@ -14,7 +14,7 @@ void instructions() {
   String r = "Avoid moving cars." ;
   String s = "Use the boats to get you across the water." ;
   String t = "Make it to the boxes at the top of the screen." ;
-  String a = "Fill up all four of the spaces." ;
+  String a = "Fill up all five of the spaces." ;
   String u = "You have five lives." ;
   String v = "Good Luck!" ; 
   text(q, 0 + 50, 150);
