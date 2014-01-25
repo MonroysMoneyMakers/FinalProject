@@ -3,12 +3,12 @@ class Boat {
   int d;
   PImage boat;
   int left;
-  Boat(float x, float y)
-  {
+  Boat(float x, float y){
+    d = 100;
     loc = new PVector(x, y);
   }
   void display() {
-    image(boat, loc.x, loc.y, 100, 50);
+    image(boat, loc.x, loc.y, d, d/2);
   }
   void move() {
     loc.add(vel);

@@ -45,28 +45,34 @@ void draw() {
     }
     for (int i = 0; i < cars.size(); i++) {
       Car c = cars.get(i);
-      if (frog.Interact(c)==true) {
+      if (frog.Interact(c) == true) {
         lives--;
         frog.restart();
       }
+    } 
+//    for (int i = 0; i < boats.size (); i++) {
+//      Boat b = boats.get(i);
+//      if (frog.loc.y < 10 && frog.loc.y > height/2 - 65) {
+//        if (frog.BoatInteract(b) == false && frog.loc.y < 10 && frog.loc.y > height/2 - 65) {
+//          lives--;
+//          frog.restart();
+//        }
+//      }
+//    }
+    frog.display();
+    frog.move();
+    respawn();
+    if (instructions == true) {
+      instructions();
+    }
+    if (back == true) {
+      Start();
+    }
+    if (lives == 0) {
+      start = false;
+      stop = true;
     }
   }
-  frog.display();
-  frog.move();
-  respawn();
-if (instructions == true) {
-  instructions();
-}
-if (back == true) {
-  Start();
-}
-if (lives==0) {
-  start = false;
-  stop=true;
-}
-//  if (start==false && stop==true) {
-//    stop screen
-//  }
 }
 void mousePressed() {
   if (mouseX > backX && mouseX < backW + backX && mouseY > backY && mouseY < backH + backY) {
@@ -86,11 +92,9 @@ void mousePressed() {
   }
 }
 
-
-
 void respawn() {
   if (oldtime<=millis()) {
-    oldtime+=5000;
+    oldtime+=5500;
     cars.add(new YellowCar(0, height/2+50));
     cars.add(new GreenCar(width, height-230));
     cars.add(new BlueCar(0, height-175));

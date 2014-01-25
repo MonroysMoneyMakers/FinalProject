@@ -10,7 +10,7 @@ class Frog {
     f = loadImage("Frog.png");
   }
   void display() {
-    image(loadImage("Frog.png"), loc.x, loc.y, 50, 50);
+    image(f, loc.x, loc.y, 50, 50);
   }
   void move() {
     if (keyPressed && key == CODED) {
@@ -27,13 +27,25 @@ class Frog {
         loc.add(UD);
       }
     }
+    if (loc.y < 20 || loc.y > height || loc.x > width || loc.x < 0 ){
+      restart();
+    }
   }
+  
   void restart() {
-    display();
+    loc.set(width/2, height - 50);
   }
 
   boolean Interact(Car car) {
-    if (loc.dist(car.loc) < d/2 + car.d/2) {
+    if (loc.dist(car.loc) < d + car.d/4) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  boolean BoatInteract(Boat boat) {
+    if (loc.dist(boat.loc) < d + boat.d/4) {
       return true;
     }
     else {
@@ -41,3 +53,4 @@ class Frog {
     }
   }
 }
+
