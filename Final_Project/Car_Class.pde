@@ -4,12 +4,12 @@ class Car {
   PImage car;
   int left;
 
-  Car(float x, float y)
-  {
+  Car(float x, float y){
+    d = 100;
     loc = new PVector(x, y);
   }
   void display() {
-    image(car, loc.x, loc.y,100,50);
+    image(car, loc.x, loc.y,d,d/2);
   }
   void move() {
     loc.add(vel);

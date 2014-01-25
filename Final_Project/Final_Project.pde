@@ -12,6 +12,7 @@ PImage StartFrog;
 boolean instructions;
 boolean start;
 boolean back;
+boolean stop;
 
 void setup() {
   keys = loadImage("arrowkeys.jpg");
@@ -25,11 +26,15 @@ void setup() {
   start = false;
   back = false;
   instructions = false;
+  stop=false;
+  lives=5;
 }
 void draw() {   
   Start();
-  if (start == true) {
+  if (start == true && stop == false) {
     background(background);
+    textSize(60);
+    text(lives, 100, 100);
     for (Car c : cars) {
       c.display();
       c.move();
@@ -38,18 +43,37 @@ void draw() {
       b.display();
       b.move();
     }
+    for (int i = 0; i < cars.size(); i++) {
+      Car c = cars.get(i);
+      if (frog.Interact(c) == true) {
+        lives--;
+        frog.restart();
+      }
+    } 
+//    for (int i = 0; i < boats.size (); i++) {
+//      Boat b = boats.get(i);
+//      if (frog.loc.y < 10 && frog.loc.y > height/2 - 65) {
+//        if (frog.BoatInteract(b) == false && frog.loc.y < 10 && frog.loc.y > height/2 - 65) {
+//          lives--;
+//          frog.restart();
+//        }
+//      }
+//    }
     frog.display();
     frog.move();
     respawn();
-  }
-  if (instructions == true) {
-    instructions();
-  }
-  if (back == true) {
-    Start();
+    if (instructions == true) {
+      instructions();
+    }
+    if (back == true) {
+      Start();
+    }
+    if (lives == 0) {
+      start = false;
+      stop = true;
+    }
   }
 }
-
 void mousePressed() {
   if (mouseX > backX && mouseX < backW + backX && mouseY > backY && mouseY < backH + backY) {
     back = !back;
@@ -68,10 +92,9 @@ void mousePressed() {
   }
 }
 
-
 void respawn() {
   if (oldtime<=millis()) {
-    oldtime+=5000;
+    oldtime+=5500;
     cars.add(new YellowCar(0, height/2+50));
     cars.add(new GreenCar(width, height-230));
     cars.add(new BlueCar(0, height-175));
