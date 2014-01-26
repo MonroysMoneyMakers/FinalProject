@@ -1,4 +1,4 @@
 NewFrogger
 ==========
 
-The game we chose to recreate is Frogger. It will have various varations from the classic including an entire upgrade system. Some plans include: start/end screen, restart game function, graphics, bonuses, levels and more!
+The game we chose to recreate is Frogger. It is the classic with various changes. Grpahics, a start/end screen, and teh functioning game are working!
