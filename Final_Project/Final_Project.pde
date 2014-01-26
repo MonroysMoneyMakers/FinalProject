@@ -50,15 +50,21 @@ void draw() {
         frog.restart();
       }
     } 
-//    for (int i = 0; i < boats.size (); i++) {
-//      Boat b = boats.get(i);
-//      if (frog.loc.y < 10 && frog.loc.y > height/2 - 65) {
-//        if (frog.BoatInteract(b) == false && frog.loc.y < 10 && frog.loc.y > height/2 - 65) {
-//          lives--;
-//          frog.restart();
-//        }
+    for (int i = 0; i < boats.size (); i++) {
+      Boat b = boats.get(i);
+      if (frog.loc.y < height/2 -65 && frog.loc.y > 0){
+      if (frog.BoatInteract(b) == false) { 
+          lives--;
+          frog.restart();
+        }
+      }
+//      if (frog.BoatInteract(b) == true && keyPressed==false ) {
+//        frog.loc = b.loc;
 //      }
-//    }
+//    else {
+//        frog.loc = frog.loc;
+//      }
+    }
     frog.display();
     frog.move();
     respawn();
@@ -71,6 +77,7 @@ void draw() {
     if (lives == 0) {
       start = false;
       stop = true;
+      start = !start;
     }
   }
 }
@@ -99,10 +106,10 @@ void respawn() {
     cars.add(new GreenCar(width, height-230));
     cars.add(new BlueCar(0, height-175));
     cars.add(new Truck(width, height - 345));
-    boats.add(new BoatThree(width, (height/2 - height/6+25)));
-    boats.add(new BoatTwo(0, height/4 +43));
-    boats.add(new BoatFour(0, height/8+100));
     boats.add(new Log(width, height/2-65));
+    boats.add(new BoatTwo(0, height/4 +43));
+    boats.add(new BoatThree(width, (height/2 - height/6+25)));
+    boats.add(new BoatFour(0, height/8+100));
     boats.add(new SLog(0, height/6+10));
   }
 }

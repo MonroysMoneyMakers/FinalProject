@@ -27,11 +27,11 @@ class Frog {
         loc.add(UD);
       }
     }
-    if (loc.y < 20 || loc.y > height || loc.x > width || loc.x < 0 ){
+    if (loc.y < 20 || loc.y > height || loc.x > width || loc.x < 0 ) {
       restart();
     }
   }
-  
+
   void restart() {
     loc.set(width/2, height - 50);
   }
@@ -45,7 +45,7 @@ class Frog {
     }
   }
   boolean BoatInteract(Boat boat) {
-    if (loc.dist(boat.loc) < d + boat.d/4) {
+    if (loc.dist(boat.loc) < d + boat.d) {
       return true;
     }
     else {
@@ -53,4 +53,3 @@ class Frog {
     }
   }
 }
-
