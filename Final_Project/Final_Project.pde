@@ -62,6 +62,7 @@ void draw() {
     frog.display();
     frog.move();
     respawn();
+  
     if (instructions == true) {
       instructions();
     }
@@ -73,6 +74,9 @@ void draw() {
       stop = true;
     }
   }
+     if (instructions == true) {
+      instructions();
+    }
 }
 void mousePressed() {
   if (mouseX > backX && mouseX < backW + backX && mouseY > backY && mouseY < backH + backY) {
@@ -89,21 +93,6 @@ void mousePressed() {
     instructions = !instructions;
     start = false;
     back = false;
-  }
-}
-
-void respawn() {
-  if (oldtime<=millis()) {
-    oldtime+=5500;
-    cars.add(new YellowCar(0, height/2+50));
-    cars.add(new GreenCar(width, height-230));
-    cars.add(new BlueCar(0, height-175));
-    cars.add(new Truck(width, height - 345));
-    boats.add(new BoatThree(width, (height/2 - height/6+25)));
-    boats.add(new BoatTwo(0, height/4 +43));
-    boats.add(new BoatFour(0, height/8+100));
-    boats.add(new Log(width, height/2-65));
-    boats.add(new SLog(0, height/6+10));
   }
 }
 
