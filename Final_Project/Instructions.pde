@@ -12,7 +12,7 @@ void instructions() {
   textSize(20);
   String q = "Move the frogger using the arrow keys." ;
   String r = "Avoid moving cars." ;
-  String s = "Use the boats to get you across the water." ;
+  String s = "Also avoid moving boats." ;
   String t = "Make it to the boxes at the top of the screen." ;
   String a = "Fill up all five of the spaces." ;
   String u = "You have five lives." ;
