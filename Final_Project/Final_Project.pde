@@ -52,22 +52,11 @@ void draw() {
     } 
     for (int i = 0; i < boats.size (); i++) {
       Boat b = boats.get(i);
-      if (frog.loc.y < height/2 - 65) {
-        if (frog.BoatInteract(b) == true) {
-          frog.loc = b.loc;
-        }
-        else {
-          lives--;
-          frog.restart();
-        }
+      if (frog.BoatInteract(b) == true){
+      lives--;
+      frog.restart();
       }
     }
-    //      if (frog.BoatInteract(b) == true && keyPressed==false ) {
-    //        frog.loc = b.loc;
-    //      }
-    //    else {
-    //        frog.loc = frog.loc;
-    //      }
     frog.display();
     frog.move();
     respawn();
